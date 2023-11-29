@@ -8,7 +8,7 @@ export interface PostCardProps {
 }
 
 export function PostCard({ post, liked }: PostCardProps) {
-    const image = post.imageUrl?.length ? post.imageUrl[0] : null;
+    const image = post.imageUrls?.length ? post.imageUrls[0] : null;
     const displayPrice = Util.formatPrice(post.price);
     const categoryLink = post.category ? '../../' : '';
 

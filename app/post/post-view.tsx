@@ -16,7 +16,7 @@ export interface PostViewProps {
 export function PostView({ data, postCategory, location }: PostViewProps) {
 
     const Minimap = dynamic(() => import('../components/minimap'), { ssr: false });
-    const hasImages = data.imageUrl?.length > 0;
+    const hasImages = data.imageUrls?.length > 0;
 
     return (
         <div className="w-full md:mt-4 p-5 xl:p-0">
@@ -24,7 +24,7 @@ export function PostView({ data, postCategory, location }: PostViewProps) {
                 <PostHead data={data} />
                 <div className="sm:flex xl:flex">
                     <div className="sm:w-8/12 sm:pr-3 md:w-7/12 xl:pr-5">
-                        {hasImages && <ImageGallery className="mb-5" postImages={data.imageUrl} />}
+                        {hasImages && <ImageGallery className="mb-5" postImages={data.imageUrls} />}
                         <p className="font-light">{data.description}</p>
 
                         <ul className="my-5 px-5 font-light list-disc">

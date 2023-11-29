@@ -3,10 +3,11 @@
 import React, { useEffect, useState } from 'react';
 import { PostCard } from './post-card';
 import { PostDto } from '@/model/post.model';
+import { CategoryDto } from '@/model/category.model';
 
 interface PostListProps {
     loadRecent?: string;
-    category?: string;
+    category?: CategoryDto;
 }
 
 export function PostList({ loadRecent, category }: PostListProps) {
@@ -45,8 +46,8 @@ export function PostList({ loadRecent, category }: PostListProps) {
             params += 'loadrecent=8';
         }
 
-        if (category) {
-            params += `&category=${category}`;
+        if (category?.shortName) {
+            params += `&category=${category.shortName}`;
         }
 
         const url = `${queryURL}?${params}`;
@@ -60,7 +61,7 @@ export function PostList({ loadRecent, category }: PostListProps) {
         }
     };
 
-    const caption = 'Recently posted' + (category ? ' in ' + category : '');
+    const caption = 'Recently posted' + (category?.label ? ' in ' + category.label : '');
 
     return (
         <div className="max-w-72rem mx-auto">

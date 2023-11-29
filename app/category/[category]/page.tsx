@@ -5,8 +5,9 @@ import { DbService } from '@/services/db.service';
 import React, { Suspense } from 'react';
 
 export default async function CategoryPage({ params }: any) {
-    const category = params.category;
+    const category = params.category as string;
     const categories = await DbService.category.all();
+    const categoryDetails = categories.find((c) => c.shortName === category);
 
     return (
         <div>
@@ -14,7 +15,7 @@ export default async function CategoryPage({ params }: any) {
                 <Sidebar categories={categories} />
             </Suspense>
             <div className="p-4 sm:ml-64">
-                <PostList loadRecent="true" category={category} />
+                <PostList loadRecent="true" category={categoryDetails} />
             </div>
         </div>
     );

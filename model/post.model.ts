@@ -10,7 +10,7 @@ export class PostCreateRequest {
     description: string = '';
     canDeliver: boolean = false;
     meetInChurch: boolean = true;
-    imageUrl: string[] = [];
+    imageUrls: string[] = [];
     neighborhood: string = '';
     zipCode: number = 92101;
 }
@@ -26,7 +26,7 @@ export interface PostDto {
     description: string;
     email: string;
     phone: string;
-    imageUrl: string[];
+    imageUrls: string[];
     neighborhood: string;
     price: number;
     title: string;

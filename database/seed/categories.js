@@ -23,11 +23,12 @@ const categories = [
     { label: 'Furniture', shortName: 'furniture', sortValue: 14, parent: 'for_sale', conditions: itemConditions },
     { label: 'Household & Appliances', shortName: 'household_appliances', sortValue: 15, parent: 'for_sale', conditions: itemConditions },
     { label: 'Musical Instruments', shortName: 'musical_instruments', sortValue: 16, parent: 'for_sale', conditions: itemConditions },
-    { label: 'Photo & Video', shortName: 'photo_video', sortValue: 17, parent: 'for_sale', conditions: itemConditions },
-    { label: 'Sporting', shortName: 'sporting', sortValue: 18, parent: 'for_sale', conditions: itemConditions },
-    { label: 'Tools', shortName: 'tools', sortValue: 19, parent: 'for_sale', conditions: itemConditions },
-    { label: 'Toys & Games', shortName: 'toys_games', sortValue: 20, parent: 'for_sale', conditions: itemConditions },
-    { label: 'Vehicles', shortName: 'vehicles', sortValue: 21, parent: 'for_sale', conditions: vehicleConditions },
+    { label: 'Pets', shortName: 'pets', sortValue: 17, parent: 'for_sale', conditions: itemConditions },
+    { label: 'Photo & Video', shortName: 'photo_video', sortValue: 18, parent: 'for_sale', conditions: itemConditions },
+    { label: 'Sporting', shortName: 'sporting', sortValue: 19, parent: 'for_sale', conditions: itemConditions },
+    { label: 'Tools', shortName: 'tools', sortValue: 20, parent: 'for_sale', conditions: itemConditions },
+    { label: 'Toys & Games', shortName: 'toys_games', sortValue: 21, parent: 'for_sale', conditions: itemConditions },
+    { label: 'Vehicles', shortName: 'vehicles', sortValue: 22, parent: 'for_sale', conditions: vehicleConditions },
 ];
 
 async function run() {

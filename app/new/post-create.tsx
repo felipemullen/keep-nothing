@@ -139,7 +139,7 @@ export function PostCreate({ categories }: PostCreateProps) {
     };
 
     const handleImageUpdate = (images: string[]) => {
-        setNewPost((prev: any) => ({ ...prev, imageUrl: images }));
+        setNewPost((prev: any) => ({ ...prev, imageUrls: images }));
     };
 
     return (
@@ -218,7 +218,7 @@ export function PostCreate({ categories }: PostCreateProps) {
                         <textarea value={newPost.description} onChange={handleChange} className="w-full border border-neutral-400 rounded pl-1 font-light" name="description" rows={4} placeholder="It's my favorite toaster, but I am moving!" />
                         <FieldError error={errorMessages.descriptionError} />
                     </div>
-                    <ImageUploader imageUrl={newPost.imageUrl} updateImages={handleImageUpdate} />
+                    <ImageUploader imageUrls={newPost.imageUrls} updateImages={handleImageUpdate} />
                     <label className="flex align-items-center mt-4">
                         <CreateFieldHeader label="Will deliver" />
                         <input className="ml-2 border border-neutral-400 rounded" type="checkbox" checked={newPost.canDeliver} onChange={handleChange} name="canDeliver" />

@@ -7,11 +7,11 @@ import { ImageUploaderImages } from './image-uploader-images';
 import { Alert } from '../alert';
 
 interface ImageUploaderProps {
-    imageUrl: string[];
+    imageUrls: string[];
     updateImages: (images: string[]) => void;
 }
 
-export function ImageUploader({ imageUrl, updateImages }: ImageUploaderProps) {
+export function ImageUploader({ imageUrls, updateImages }: ImageUploaderProps) {
     const [uploading, setUploading] = useState(false);
     const [uploadError, setUploadError] = useState('');
 
@@ -37,7 +37,7 @@ export function ImageUploader({ imageUrl, updateImages }: ImageUploaderProps) {
                     return json.url;
                 })
             );
-            updateImages(imageUrl.concat(images));
+            updateImages(imageUrls.concat(images));
         } catch (error) {
             setUploadError('Unable to upload image');
         } finally {
@@ -46,7 +46,7 @@ export function ImageUploader({ imageUrl, updateImages }: ImageUploaderProps) {
     };
 
     function removeImage(id: string) {
-        updateImages(imageUrl.filter((image) => image !== id));
+        updateImages(imageUrls.filter((image) => image !== id));
     };
 
     function content() {
@@ -57,7 +57,7 @@ export function ImageUploader({ imageUrl, updateImages }: ImageUploaderProps) {
                 return (
                     <div>
                         <ImageUploaderButtons onChange={onChange} />
-                        <ImageUploaderImages images={imageUrl} removeImage={removeImage} />
+                        <ImageUploaderImages images={imageUrls} removeImage={removeImage} />
                         {uploadError &&
                             <Alert strong="Error:" text={uploadError} className="mt-4" />
                         }

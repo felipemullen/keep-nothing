@@ -26,7 +26,7 @@ export async function POST(request: Request) {
             condition: body.condition,
             description: body.description,
             email: body.email,
-            imageUrl: body.imageUrl,
+            imageUrls: body.imageUrls,
             neighborhood: body.neighborhood,
             price: body.price,
             title: body.title,
