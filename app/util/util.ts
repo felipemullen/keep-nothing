@@ -1,4 +1,5 @@
 import crypto from 'crypto';
+import zipcodes from 'zipcodes';
 
 export class String {
     static isNullOrWhitespace(value?: string) {
@@ -7,6 +8,21 @@ export class String {
 }
 
 export class Util {
+    static getProperZipCode(zipCode: number): number {
+        const details = zipcodes.lookup(zipCode);
+        if (details) {
+            return details.zip;
+        }
+        return 92101;
+    }
+
+    static getZipCoordinates(location: number): [number, number] {
+        const details = zipcodes.lookup(location);
+        if (details) {
+            return [details.latitude, details.longitude];
+        }
+        return [32.715225, -117.1682754]
+    }
     /**
      * Taken from https://stackoverflow.com/a/40191779/3654061
      */

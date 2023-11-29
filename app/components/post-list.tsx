@@ -60,15 +60,15 @@ export function PostList({ loadRecent, category }: PostListProps) {
         }
     };
 
-    const caption = loadRecent ? 'Recently posted' : category || '';
+    const caption = 'Recently posted' + (category ? ' in ' + category : '');
 
     return (
         <div className="max-w-72rem mx-auto">
             <div className="flex justify-between items-baseline text-sm">
                 <p className="uppercase text-menu-caption-gray font-semibold text-xs mb-5">{caption}</p>
                 <div className="flex items-center">
-                    <span className="mr-4">Sort by:</span>
-                    <select value={sortedBy} onChange={handleSort} className="pl-2 text-md">
+                    <span className="mr-1">Sort by:</span>
+                    <select value={sortedBy} onChange={handleSort} className="pl-1 text-md">
                         <option value="newest">Newest</option>
                         <option value="lowest">Lowest price</option>
                         <option value="highest">Highest price</option>

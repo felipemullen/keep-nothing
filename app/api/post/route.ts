@@ -1,5 +1,5 @@
 import { Util } from '@/app/util/util';
-import { PostDto, validatePost } from '@/model/post.model';
+import { PostCreateRequest, PostDto, validatePost } from '@/model/post.model';
 import { DbService } from '@/services/db.service';
 
 export async function GET(request: Request) {
@@ -14,15 +14,24 @@ export async function GET(request: Request) {
 }
 
 export async function POST(request: Request) {
-    const body = await request.json() as PostDto;
+    const body = await request.json() as PostCreateRequest;
 
     const errors = validatePost(body);
 
     if (errors.length === 0) {
-        const post: PostDto = {
-            ...body,
+        const post: Omit<PostDto, '_id' | 'createdDate'> = {
+            canDeliver: body.canDeliver,
+            meetInChurch: body.meetInChurch,
+            category: body.category,
+            condition: body.condition,
+            description: body.description,
+            email: body.email,
+            imageUrl: body.imageUrl,
+            neighborhood: body.neighborhood,
+            price: body.price,
+            title: body.title,
             phone: Util.sanitizePhoneNumber(body.phone),
-            price: parseInt(body.price.toString())
+            zipCode: Util.getProperZipCode(body.zipCode)
         };
 
         const id = await DbService.post.create(post);

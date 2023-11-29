@@ -27,7 +27,7 @@ export class PostDb extends DbCollection<PostDto> {
         return [];
     }
 
-    async create(data: PostDto) {
+    async create(data: Omit<PostDto, '_id' | 'createdDate'>) {
         const post: PostDto = {
             ...data,
             createdDate: new Date().toString()

@@ -5,12 +5,15 @@ import { PostHead } from './post-head';
 import { Suspense } from 'react';
 import { TimeAgo } from '../components/time-ago.component';
 import dynamic from 'next/dynamic';
+import { CategoryDto } from '@/model/category.model';
 
 export interface PostViewProps {
     data: PostDto;
+    postCategory: CategoryDto;
+    location: [number, number];
 }
 
-export function PostView({ data }: PostViewProps) {
+export function PostView({ data, postCategory, location }: PostViewProps) {
 
     const Minimap = dynamic(() => import('../components/minimap'), { ssr: false });
     const hasImages = data.imageUrl?.length > 0;
@@ -36,14 +39,15 @@ export function PostView({ data }: PostViewProps) {
                     <div className="w-full sm:w-4/12 md:w-5/12">
                         <div className="mb-4 overflow-hidden">
                             <Suspense fallback={<p>Loading map...</p>}>
-                                <Minimap center={[0, 0]} zoom={13} />
+                                <Minimap center={location} zoom={13} />
                             </Suspense>
                         </div>
                         <div className="flex flex-col items-start">
+                            <KeyValuePill className="mb-1" label="zip code" value={data.zipCode.toString()} />
                             <KeyValuePill className="mb-1" label="condition" value={data.condition} />
                             <KeyValuePill className="mb-1" label="will deliver" value={data.canDeliver ? 'yes' : 'no'} />
                             <KeyValuePill className="mb-1" label="Can meet in church" value={data.meetInChurch ? 'yes' : 'no'} />
-                            <KeyValuePill className="mb-1" label="category" value={data.category} />
+                            <KeyValuePill className="mb-1" label="category" value={postCategory.label} />
                         </div>
                     </div>
                 </div>

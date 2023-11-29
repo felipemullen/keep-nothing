@@ -4,9 +4,8 @@ import { Alert } from '../components/alert';
 import { CreateFieldHeader } from '../components/create/create-field-header';
 import { ImageUploader } from '../components/create/image-uploader';
 import { FieldError } from '../components/create/field-error';
-import { neighborhoodOptions } from '../../model/neighborhood.model';
 import React, { useState } from 'react';
-import { PostDto } from '@/model/post.model';
+import { PostCreateRequest } from '@/model/post.model';
 import { CategoryDto } from '@/model/category.model';
 
 const initialErrors = {
@@ -16,7 +15,8 @@ const initialErrors = {
     conditionError: '',
     emailError: '',
     descriptionError: '',
-    locationError: ''
+    zipCodeError: '',
+    neighborhoodError: ''
 };
 
 export interface PostCreateProps {
@@ -25,19 +25,7 @@ export interface PostCreateProps {
 
 export function PostCreate({ categories }: PostCreateProps) {
     const [isFormValid, setIsFormValid] = useState<boolean | null>(null);
-    const [newPost, setNewPost] = useState<Omit<PostDto, 'createdDate'>>({
-        category: '',
-        title: '',
-        price: 0,
-        phone: '',
-        condition: '',
-        email: '',
-        description: '',
-        canDeliver: false,
-        meetInChurch: true,
-        location: '',
-        imageUrl: []
-    });
+    const [newPost, setNewPost] = useState<PostCreateRequest>(new PostCreateRequest());
     const [errorMessages, setErrorMessages] = useState(initialErrors);
     const [conditionList, setConditionList] = useState<string[]>([]);
 
@@ -65,13 +53,15 @@ export function PostCreate({ categories }: PostCreateProps) {
         let conditionError = '';
         let emailError = '';
         let descriptionError = '';
-        let locationError = '';
+        let zipCodeError = '';
 
         if (!inputValues.title) {
             titleError = 'title cannot be blank';
         }
-        if (!inputValues.location) {
-            locationError = 'location cannot be blank';
+        if (!inputValues.zipCode) {
+            zipCodeError = 'zip code cannot be blank';
+        } else if (inputValues.zipCode && inputValues.zipCode.toString().length !== 5) {
+            zipCodeError = 'invalid zip code';
         }
         if (!inputValues.category) {
             categoryError = 'category cannot be blank';
@@ -104,10 +94,10 @@ export function PostCreate({ categories }: PostCreateProps) {
             conditionError,
             emailError,
             descriptionError,
-            locationError
+            zipCodeError
         });
 
-        if (categoryError || titleError || priceError || conditionError || emailError || descriptionError || locationError) {
+        if (categoryError || titleError || priceError || conditionError || emailError || descriptionError || zipCodeError) {
             return false;
         }
 
@@ -178,29 +168,31 @@ export function PostCreate({ categories }: PostCreateProps) {
                         </div>
                         <div className="w-1/2 ml-2">
                             <CreateFieldHeader label="Condition" required />
-                            <select value={newPost.condition} onChange={handleChange} className="w-full rounded px-1 py-1 border border-neutral-400 text-sm font-light" name="condition">
+                            <select value={newPost.condition} onChange={handleChange} className="w-full capitalize rounded px-1 py-1 border border-neutral-400 text-sm font-light" name="condition">
                                 <option value="" disabled>Select...</option>
                                 {conditionList.map((option) => (
-                                    <option key={option} value={option} className="capitalize">{option}</option>
+                                    <option key={option} value={option}>{option}</option>
                                 ))}
                             </select>
                             <FieldError error={errorMessages.conditionError} />
                         </div>
                     </div>
-                    <div>
-                        <CreateFieldHeader label="Location" required />
-                        <select value={newPost.location} onChange={handleChange} className="w-full rounded px-1 py-1 border border-neutral-400 text-sm font-light" name="location">
-                            <option value="" disabled>Select...</option>
-                            {neighborhoodOptions.map((option) => (
-                                <option key={option.value} value={option.value}>{option.label}</option>
-                            ))}
-                        </select>
-                        <FieldError error={errorMessages.locationError} />
+                    <div className="flex">
+                        <div className="w-1/2">
+                            <CreateFieldHeader label="Neighborhood" />
+                            <input className="w-full border border-neutral-400 w-50 rounded font-light pl-1" type="text" value={newPost.neighborhood} onChange={handleChange} name="neighborhood" placeholder="Downtown, Point Loma.." />
+                            <FieldError error={errorMessages.neighborhoodError} />
+                        </div>
+                        <div className="w-1/2 ml-2">
+                            <CreateFieldHeader label="Zip Code" required />
+                            <input className="w-full border border-neutral-400 w-50 rounded font-light pl-1" type="number" value={newPost.zipCode} onChange={handleChange} name="zipCode" />
+                            <FieldError error={errorMessages.zipCodeError} />
+                        </div>
                     </div>
                     <div className="flex">
                         <div className="w-1/2">
                             <CreateFieldHeader label="Title" required />
-                            <input className="w-full border border-neutral-400 w-50 rounded font-light pl-1" type="text" value={newPost.title} onChange={handleChange} name="title" />
+                            <input className="w-full border border-neutral-400 w-50 rounded font-light pl-1" type="text" value={newPost.title} onChange={handleChange} name="title" placeholder="Fancy toaster" />
                             <FieldError error={errorMessages.titleError} />
                         </div>
                         <div className="w-1/2 ml-2">
@@ -217,13 +209,13 @@ export function PostCreate({ categories }: PostCreateProps) {
                         </div>
                         <div className="w-1/2 ml-2">
                             <CreateFieldHeader label="Phone Number" />
-                            <input className="w-full border border-neutral-400 w-50 rounded font-light pl-1" type="tel" value={newPost.phone} onChange={handleChange} name="phone" />
+                            <input className="w-full border border-neutral-400 w-50 rounded font-light pl-1" type="tel" value={newPost.phone} onChange={handleChange} name="phone" placeholder="619-123-4567" />
                             <FieldError error={errorMessages.emailError} />
                         </div>
                     </div>
                     <div className="w-full">
                         <CreateFieldHeader label="Description" required />
-                        <textarea value={newPost.description} onChange={handleChange} className="w-full border border-neutral-400 rounded pl-1 font-light" name="description" rows={4} />
+                        <textarea value={newPost.description} onChange={handleChange} className="w-full border border-neutral-400 rounded pl-1 font-light" name="description" rows={4} placeholder="It's my favorite toaster, but I am moving!" />
                         <FieldError error={errorMessages.descriptionError} />
                     </div>
                     <ImageUploader imageUrl={newPost.imageUrl} updateImages={handleImageUpdate} />

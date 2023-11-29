@@ -24,7 +24,7 @@ export function PostCard({ post, liked }: PostCardProps) {
                 <div className="p-2">
                     <h2 className="font-semibold text-md">{post.title}</h2>
                     <div className="flex justify-between items-center text-dark-gray mt-1">
-                        <p className="font-light text-sm">{post.location}</p>
+                        <p className="font-light text-sm">{post.neighborhood}</p>
                         <p className="post-card-pricing">{displayPrice}</p>
                     </div>
                 </div>

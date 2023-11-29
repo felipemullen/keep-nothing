@@ -23,7 +23,7 @@ export function PostHead({ data }: PostHeadProps) {
                 </div>
                 <p className="text-xs ml-auto">Posted <TimeAgo date={data.createdDate} /></p>
             </div>
-            <h1 className="text-2xl capitalize py-3">{data.title} - {Util.formatPrice(data.price)} ({data.location})</h1>
+            <h1 className="text-2xl capitalize py-3">{data.title} - {Util.formatPrice(data.price)}{data.neighborhood && <span> ({data.neighborhood})</span>}</h1>
         </>
     );
 }
