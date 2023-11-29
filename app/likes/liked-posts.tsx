@@ -28,16 +28,17 @@ export function LikedPosts({ }: PostListProps) {
     };
 
     async function fetchPosts() {
-        const url = `/api/post?ids=${Object.keys(likedPosts).join(',')}`;
-        console.log(url);
+        if (Object.keys(likedPosts).length > 0) {
+            const url = `/api/post?ids=${Object.keys(likedPosts).join(',')}`;
 
-        const response = await fetch(url);
+            const response = await fetch(url);
 
-        if (!response.ok) {
-            console.log('Error fetching posts');
-        } else {
-            const postData = await response.json();
-            setData(postData as PostDto[]);
+            if (!response.ok) {
+                console.log('Error fetching posts');
+            } else {
+                const postData = await response.json();
+                setData(postData as PostDto[]);
+            }
         }
 
         setIsLoading(false);
