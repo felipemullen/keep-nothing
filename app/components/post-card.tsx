@@ -1,6 +1,7 @@
 import { PostDto } from '@/model/post.model';
 import { Util } from '../util/util';
 import { FeatherIcon } from './icons/feather-icon';
+import { LikeButton } from './like-btn.component';
 
 export interface PostCardProps {
     post: PostDto;
@@ -14,6 +15,9 @@ export function PostCard({ post, liked }: PostCardProps) {
 
     return (
         <div className="overflow-hidden bg-white shadow-md relative">
+            <div className="absolute top-2 right-2">
+                <LikeButton postId={post._id!.toString()} />
+            </div>
             <a href={categoryLink + 'post/' + post._id} key={post._id?.toString()}>
                 {image
                     ? <img className="h-96 sm:h-40 lg:h-48 xl:h-56 w-full object-cover" src={image} alt="" />
@@ -28,7 +32,6 @@ export function PostCard({ post, liked }: PostCardProps) {
                         <p className="post-card-pricing">{displayPrice}</p>
                     </div>
                 </div>
-                {/* <i onClick={handleLike} className={`fa fa-heart${liked ? '' : '-o'}`} /> */}
             </a>
         </div>
     );

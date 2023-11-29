@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { FeatherIcon } from './icons/feather-icon';
 
 export interface LikeButtonProps {
-    postId?: string;
+    postId: string;
 }
 
 export function LikeButton({ postId }: LikeButtonProps) {
@@ -39,12 +39,17 @@ export function LikeButton({ postId }: LikeButtonProps) {
         }
     };
 
+    if (isLiked) {
+        return (
+            <button className="px-2 hover:text-white" onClick={togglePostLike}>
+                <FeatherIcon className="text-red-500 hover:text-black" name="heart" size={20} fillColor="#FF0000" />
+            </button>
+        );
+    }
+
     return (
-        <button className="px-2 hover:text-red-400" onClick={togglePostLike}>
-            {isLiked
-                ? <FeatherIcon name="heart" size={20} color='#FF0000' fillColor='#FF0000' />
-                : < FeatherIcon name="heart" size={20} />
-            }
+        <button className="px-2 hover:text-red-500" onClick={togglePostLike}>
+            < FeatherIcon name="heart" size={20} />
         </button>
     );
 }

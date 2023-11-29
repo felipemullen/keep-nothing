@@ -15,7 +15,7 @@ export function PostHead({ data }: PostHeadProps) {
             <div className="flex justify-between items-center">
                 <div className="flex">
                     <PostReplyBtn data={data} />
-                    <LikeButton postId={data._id?.toString()} />
+                    <LikeButton postId={data._id!.toString()} />
                     {/* <button className="px-2 hover:text-red-600">
                         <FeatherIcon name="flag" size={20} />
                     </button> */}
