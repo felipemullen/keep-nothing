@@ -20,6 +20,7 @@
     "react-dom": "^18",
     "react-leaflet": "^4.2.1",
     "react-responsive-carousel": "^3.2.23",
+    "sharp": "^0.33.0",
     "zipcodes": "^8.0.0"
   },
   "devDependencies": {
