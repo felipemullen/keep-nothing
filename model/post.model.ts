@@ -34,8 +34,14 @@ export interface PostDto {
 }
 
 export function validatePost(post: { [key: string]: any }) {
+    const skipFields = ['phone', 'neighborhood'];
+
     const errors = [];
     for (const key in post) {
+        if (skipFields.includes(key)) {
+            continue;
+        }
+
         const value = post[key];
         if (value === undefined || (typeof value === 'string' && value.trim() === '')) {
             errors.push(`Missing required field: ${key}`);

@@ -210,7 +210,6 @@ export function PostCreate({ categories }: PostCreateProps) {
                         <div className="w-1/2 ml-2">
                             <CreateFieldHeader label="Phone Number" />
                             <input className="w-full border border-neutral-400 w-50 rounded font-light pl-1" type="tel" value={newPost.phone} onChange={handleChange} name="phone" placeholder="619-123-4567" />
-                            <FieldError error={errorMessages.emailError} />
                         </div>
                     </div>
                     <div className="w-full">
