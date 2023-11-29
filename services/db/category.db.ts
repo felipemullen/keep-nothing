@@ -18,7 +18,7 @@ export class CategoryDb extends DbCollection<CategoryDto> {
             },
             {
                 $project: {
-                    _id: 1,
+                    _id: { $toString: "$_id" },
                     label: 1,
                     shortName: 1,
                     description: 1,

@@ -21,7 +21,7 @@ export function LikeButton({ postId }: LikeButtonProps) {
         if (postId) {
             setIsLiked(likedPosts[postId]);
         }
-    }, [likedPosts]);
+    }, [likedPosts, postId]);
 
     function togglePostLike() {
         if (postId) {

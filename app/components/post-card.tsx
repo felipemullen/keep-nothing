@@ -2,13 +2,13 @@ import { PostDto } from '@/model/post.model';
 import { Util } from '../util/util';
 import { FeatherIcon } from './icons/feather-icon';
 import { LikeButton } from './like-btn.component';
+import Image from 'next/image';
 
 export interface PostCardProps {
     post: PostDto;
-    liked?: boolean;
 }
 
-export function PostCard({ post, liked }: PostCardProps) {
+export function PostCard({ post }: PostCardProps) {
     const image = post.imageUrls?.length ? post.imageUrls[0] : null;
     const displayPrice = Util.formatPrice(post.price);
     const categoryLink = post.category ? '../../' : '';
@@ -20,7 +20,7 @@ export function PostCard({ post, liked }: PostCardProps) {
             </div>
             <a href={categoryLink + 'post/' + post._id} key={post._id?.toString()}>
                 {image
-                    ? <img className="h-96 sm:h-40 lg:h-48 xl:h-56 w-full object-cover" src={image} alt="" />
+                    ? <Image className="h-96 sm:h-40 lg:h-48 xl:h-56 w-full object-cover" src={image} width={200} height={200} alt="" priority />
                     : (<div className="h-96 sm:h-40 lg:h-48 xl:h-56 w-full flex items-center bg-neutral-200 justify-center">
                         <FeatherIcon name="image" size={48} color="#999" />
                     </div>)

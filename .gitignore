@@ -34,3 +34,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+/public/_i/*.png
+/public/_i/*.gif
+/public/_i/*.jpg
+/public/_i/*.jpeg

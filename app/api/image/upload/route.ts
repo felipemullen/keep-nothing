@@ -1,4 +1,4 @@
-import { Util } from '@/app/util/util';
+import { ServerUtil } from '@/app/util/server-utils';
 import fs from 'fs';
 import path from 'path';
 import sharp from 'sharp';
@@ -16,7 +16,7 @@ export async function POST(request: Request) {
 
         if (extension?.trim()) {
             if (['jpg', 'jpeg', 'png', 'gif'].includes(extension)) {
-                const newFileName = `${Util.uniqueId()}.${extension}`;
+                const newFileName = `${ServerUtil.uniqueId()}.${extension}`;
 
                 const urlPath = path.join(process.env.IMAGE_UPLOAD_PUBLIC_PATH, newFileName);
                 const writePath = path.join('public', urlPath);

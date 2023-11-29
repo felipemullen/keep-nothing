@@ -15,12 +15,31 @@ export function PostList({ loadRecent, category }: PostListProps) {
     const [sortedBy, setSortedBy] = useState('newest');
 
     useEffect(() => {
-        const fetchData = async () => {
-            fetchPosts();
+        async function fetchPosts() {
+            let queryURL = '/api/post';
+            let params = '';
+
+            if (loadRecent) {
+                params += 'loadrecent=8';
+            }
+
+            if (category?.shortName) {
+                params += `&category=${category.shortName}`;
+            }
+
+            const url = `${queryURL}?${params}`;
+
+            const response = await fetch(url);
+            if (!response.ok) {
+                console.log('Error fetching posts');
+            } else {
+                const postData = await response.json();
+                setData(postData as PostDto[]);
+            }
         };
 
-        fetchData();
-    }, [category]);
+        fetchPosts();
+    }, [category, loadRecent]);
 
 
     const handleSort = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -36,29 +55,6 @@ export function PostList({ loadRecent, category }: PostListProps) {
 
         setData(posts);
         setSortedBy(event.target.value);
-    };
-
-    async function fetchPosts() {
-        let queryURL = '/api/post';
-        let params = '';
-
-        if (loadRecent) {
-            params += 'loadrecent=8';
-        }
-
-        if (category?.shortName) {
-            params += `&category=${category.shortName}`;
-        }
-
-        const url = `${queryURL}?${params}`;
-
-        const response = await fetch(url);
-        if (!response.ok) {
-            console.log('Error fetching posts');
-        } else {
-            const postData = await response.json();
-            setData(postData as PostDto[]);
-        }
     };
 
     const caption = 'Recently posted' + (category?.label ? ' in ' + category.label : '');

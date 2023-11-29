@@ -16,6 +16,7 @@ export function ImageGallery({ className, postImages }: ImageCarouselProps) {
         return postImages.map((image, i) => {
             return (
                 <div key={`thumbnail-${i}`} className="w-full h-full">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={image} alt='' className="w-full h-full object-cover" />
                 </div>
             )
@@ -28,6 +29,7 @@ export function ImageGallery({ className, postImages }: ImageCarouselProps) {
                 {postImages.map((image, i) => {
                     return (
                         <div key={`${image}-${i}`} className="h-full w-full">
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
                             <img className="h-full w-full object-cover" src={image} alt='' />
                         </div>
                     )

@@ -4,7 +4,7 @@ import { FeatherIcon } from '@/app/components/icons/feather-icon';
 
 import React, { Suspense } from 'react';
 import { Spinner } from '@/app/components/spinner';
-import { Util } from '@/app/util/util';
+import { ServerUtil } from '@/app/util/server-utils';
 
 export default async function PostPage({ params }: any) {
     const { id } = params;
@@ -13,7 +13,7 @@ export default async function PostPage({ params }: any) {
 
     if (post) {
         const postCategory = await DbService.category.byShortName(post.category);
-        const location = Util.getZipCoordinates(post.zipCode);
+        const location = ServerUtil.getZipCoordinates(post.zipCode);
 
         return (
             <Suspense fallback={<Spinner />}>

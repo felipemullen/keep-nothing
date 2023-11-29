@@ -1,3 +1,4 @@
+import { ServerUtil } from '@/app/util/server-utils';
 import { Util } from '@/app/util/util';
 import { PostCreateRequest, PostDto, validatePost } from '@/model/post.model';
 import { DbService } from '@/services/db.service';
@@ -32,7 +33,7 @@ export async function POST(request: Request) {
             price: body.price,
             title: body.title,
             phone: Util.sanitizePhoneNumber(body.phone),
-            zipCode: Util.getProperZipCode(body.zipCode)
+            zipCode: ServerUtil.getProperZipCode(body.zipCode)
         };
 
         const id = await DbService.post.create(post);
