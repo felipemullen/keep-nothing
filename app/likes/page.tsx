@@ -5,7 +5,7 @@ import { Spinner } from '../components/spinner';
 import { DbService } from '@/services/db.service';
 
 export default async function LikesPage() {
-    const categories = await DbService.category.all();
+    const categories = await DbService.category.withCounts();
 
     return (
         <div>

@@ -7,6 +7,10 @@ export interface CategoryDto {
     conditions: string[];
 }
 
+export interface CategoryWithCount extends CategoryDto {
+    postCount: number;
+}
+
 export interface CategoryGroups {
     [key: string]: CategoryDto[];
 }

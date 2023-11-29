@@ -2,10 +2,10 @@
 
 import React, { useState } from 'react';
 import { FeatherIcon } from './icons/feather-icon';
-import { CategoryDto } from '@/model/category.model';
+import { CategoryWithCount } from '@/model/category.model';
 
 export interface SidebarProps {
-    categories: CategoryDto[];
+    categories: CategoryWithCount[];
 }
 
 export function Sidebar({ categories }: SidebarProps) {
@@ -37,7 +37,10 @@ export function Sidebar({ categories }: SidebarProps) {
                     <ul className="pl-4 text-base">
                         {categories.map((category) => (
                             <a key={category._id} href={`/category/${category.shortName}`}>
-                                <li className="font-light text-neutral-500">{category.label}</li>
+                                <li className="font-light text-neutral-500">
+                                    {category.label}
+                                    {category.postCount > 0 && <span className="text-xs ml-1 text-rose-300">({category.postCount})</span>}
+                                </li>
                             </a>
                         ))}
                     </ul>

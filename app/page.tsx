@@ -26,7 +26,7 @@ import { Spinner } from './components/spinner';
 
 export default async function MainPage() {
 
-    const categories = await DbService.category.all();
+    const categories = await DbService.category.withCounts();
 
     return (
         <div>

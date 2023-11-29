@@ -6,7 +6,7 @@ import React, { Suspense } from 'react';
 
 export default async function CategoryPage({ params }: any) {
     const category = params.category as string;
-    const categories = await DbService.category.all();
+    const categories = await DbService.category.withCounts();
     const categoryDetails = categories.find((c) => c.shortName === category);
 
     return (
