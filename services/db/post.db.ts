@@ -44,4 +44,14 @@ export class PostDb extends DbCollection<PostDto> {
             return null;
         }
     }
+
+    async getListOfImages() {
+        try {
+            const result = await this.collection.find({}).project({ imageUrls: 1 }).toArray();
+            const flattenedArray = result.flatMap((item) => item.imageUrls);
+            return flattenedArray;
+        } catch (error) {
+            return [];
+        }
+    }
 }
