@@ -13,7 +13,7 @@ export class FileTasks {
         const dbImages = (await DbService.post.getListOfImages()).map(imageUrl => imageUrl.replace('/_i/', ''));
 
         const imagePath = path.join('public', process.env.IMAGE_UPLOAD_PUBLIC_PATH);
-        const files = fs.readdirSync(imagePath).filter(file => file.endsWith('.jpg'));
+        const files = fs.readdirSync(imagePath).filter(file => file.endsWith('.jpeg'));
 
         const orphanedImages = files.filter(file => !dbImages.includes(file));
 

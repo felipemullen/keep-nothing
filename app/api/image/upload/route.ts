@@ -16,7 +16,8 @@ export async function POST(request: Request) {
 
         if (extension?.trim()) {
             if (['jpg', 'jpeg', 'png', 'gif'].includes(extension)) {
-                const newFileName = `${ServerUtil.uniqueId()}.${extension}`;
+                const imageId = ServerUtil.uniqueId();
+                const newFileName = `${imageId}.jpeg`;
 
                 const urlPath = path.join(process.env.IMAGE_UPLOAD_PUBLIC_PATH, newFileName);
                 const writePath = path.join('public', urlPath);
@@ -31,7 +32,7 @@ export async function POST(request: Request) {
                 fs.writeFileSync(writePath, Buffer.from(resizedBuffer));
 
                 return Response.json({
-                    url: `/${urlPath}`,
+                    url: imageId,
                 });
             }
         }

@@ -17,7 +17,7 @@ export function ImageGallery({ className, postImages }: ImageCarouselProps) {
             return (
                 <div key={`thumbnail-${i}`} className="w-full h-full">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={image} alt='' className="w-full h-full object-cover" />
+                    <img src={`/api/image?key=${image}`} alt='' className="w-full h-full object-cover" />
                 </div>
             )
         });
@@ -30,7 +30,7 @@ export function ImageGallery({ className, postImages }: ImageCarouselProps) {
                     return (
                         <div key={`${image}-${i}`} className="h-full w-full">
                             {/* eslint-disable-next-line @next/next/no-img-element */}
-                            <img className="h-full w-full object-cover" src={image} alt='' />
+                            <img className="h-full w-full object-cover" src={`/api/image?key=${image}`} alt='' />
                         </div>
                     )
                 })}
