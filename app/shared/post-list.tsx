@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { PostCard } from '../post/post-card';
 import { PostDto } from '@/model/post.model';
 import { CategoryDto } from '@/model/category.model';
+import { FeatherIcon } from './icons/feather-icon';
 
 interface PostListProps {
     loadRecent?: string;
@@ -77,6 +78,15 @@ export function PostList({ loadRecent, category }: PostListProps) {
                     <PostCard key={post._id?.toString()} post={post} />
                 ))}
             </div>
+            {data.length === 0 &&
+                <div className="p-5 w-full flex flex-col items-center">
+                    <FeatherIcon name="frown" className="m-4 text-red-400" size={42} />
+                    <p>There aren&apos;t any posts in this category!</p>
+                    <a href="/" className="uppercase text-sm text-red-400 hover:text-white hover:bg-red-400 border rounded px-2 py-1 my-8">
+                        View all categories
+                    </a>
+                </div>
+            }
         </div>
     );
 };
