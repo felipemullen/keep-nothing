@@ -3,7 +3,7 @@ import { DbCollection } from './db-collection';
 import { PostDto } from '../../model/post.model';
 
 export class PostDb extends DbCollection<PostDto> {
-    async search(category?: string, postIds?: string, limit: number = 999) {
+    async search(category?: string, postIds?: string, limit: number = 999, includeExpired: boolean = false) {
         const filter: Filter<PostDto> = {};
 
         const _postIds = postIds ? postIds.split(',') : [];
@@ -15,6 +15,10 @@ export class PostDb extends DbCollection<PostDto> {
 
         if (category) {
             filter.category = category;
+        }
+
+        if (!includeExpired) {
+            filter.isExpired = { $ne: true };
         }
 
         try {
@@ -53,5 +57,14 @@ export class PostDb extends DbCollection<PostDto> {
         } catch (error) {
             return [];
         }
+    }
+
+    async setOldPostsExpired(olderThanDays: number) {
+        const result = await this.collection.updateMany(
+            { createdDate: { $lt: new Date(Date.now() - olderThanDays * 24 * 60 * 60 * 1000).toString() } },
+            { $set: { isExpired: true } }
+        );
+
+        return result.modifiedCount;
     }
 }

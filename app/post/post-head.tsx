@@ -12,6 +12,9 @@ export interface PostHeadProps {
 export function PostHead({ data }: PostHeadProps) {
     return (
         <>
+            {data.isExpired &&
+                <div className="bg-red-100 border border-red-300 text-center uppercase text-sm p-2 my-2">this listing has expired</div>
+            }
             <div className="flex justify-between items-center">
                 <div className="flex">
                     <PostReplyBtn data={data} />

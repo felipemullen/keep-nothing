@@ -28,6 +28,7 @@ export async function POST(request: Request) {
             description: body.description,
             email: body.email,
             imageUrls: body.imageUrls,
+            isExpired: false,
             neighborhood: body.neighborhood,
             price: body.price,
             title: body.title,

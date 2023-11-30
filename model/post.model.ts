@@ -31,6 +31,7 @@ export interface PostDto {
     price: number;
     title: string;
     zipCode: number;
+    isExpired: boolean;
 }
 
 export function validatePost(post: { [key: string]: any }) {
