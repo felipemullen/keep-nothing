@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
-import { FeatherIcon } from '../icons/feather-icon';
+import { FeatherIcon } from '../../shared/icons/feather-icon';
 
 export interface ImageUploaderImagesProps {
     images: string[];

@@ -1,9 +1,9 @@
 import { PostDto } from '@/model/post.model';
-import { TimeAgo } from '../components/time-ago.component';
-import { Util } from '../util/util';
+import { TimeAgo } from '../../shared/time-ago';
+import { Util } from '../../util/util';
 import { PostReplyBtn } from './post-reply-btn';
-import { ShareButton } from '../components/share-btn.component';
-import { LikeButton } from '../components/like-btn.component';
+import { ShareButton } from '../../shared/share-btn';
+import { LikeButton } from '../../shared/like-btn';
 
 export interface PostHeadProps {
     data: PostDto;

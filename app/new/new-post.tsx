@@ -1,9 +1,9 @@
 'use client';
 
-import { Alert } from '../components/alert';
-import { CreateFieldHeader } from '../components/create/create-field-header';
-import { ImageUploader } from '../components/create/image-uploader';
-import { FieldError } from '../components/create/field-error';
+import { Alert } from '../shared/alert';
+import { CreateFieldHeader } from './create-field-header';
+import { ImageUploader } from './image-uploader/image-uploader';
+import { FieldError } from './field-error';
 import React, { useState } from 'react';
 import { PostCreateRequest } from '@/model/post.model';
 import { CategoryDto } from '@/model/category.model';
@@ -19,11 +19,11 @@ const initialErrors = {
     neighborhoodError: ''
 };
 
-export interface PostCreateProps {
+export interface NewPostProps {
     categories: CategoryDto[];
 }
 
-export function PostCreate({ categories }: PostCreateProps) {
+export function NewPost({ categories }: NewPostProps) {
     const [isFormValid, setIsFormValid] = useState<boolean | null>(null);
     const [newPost, setNewPost] = useState<PostCreateRequest>(new PostCreateRequest());
     const [errorMessages, setErrorMessages] = useState(initialErrors);

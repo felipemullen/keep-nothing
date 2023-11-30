@@ -1,6 +1,6 @@
-import { PostList } from '@/app/components/post-list';
-import { Sidebar } from '@/app/components/sidebar';
-import { Spinner } from '@/app/components/spinner';
+import { PostList } from '@/app/shared/post-list';
+import { Sidebar } from '@/app/shared/sidebar';
+import { Spinner } from '@/app/shared/spinner';
 import { DbService } from '@/services/db.service';
 import React, { Suspense } from 'react';
 

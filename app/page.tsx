@@ -19,10 +19,10 @@
 // }p
 
 import React, { Suspense } from 'react';
-import { Sidebar } from './components/sidebar';
-import { PostList } from './components/post-list';
+import { Sidebar } from './shared/sidebar';
+import { PostList } from './shared/post-list';
 import { DbService } from '@/services/db.service';
-import { Spinner } from './components/spinner';
+import { Spinner } from './shared/spinner';
 
 export default async function MainPage() {
 

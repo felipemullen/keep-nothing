@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { PostCard } from './post-card';
+import { PostCard } from '../post/post-card';
 import { PostDto } from '@/model/post.model';
 import { CategoryDto } from '@/model/category.model';
 

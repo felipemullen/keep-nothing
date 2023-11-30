@@ -1,7 +1,7 @@
 import { PostDto } from '@/model/post.model';
 import { Util } from '../util/util';
-import { FeatherIcon } from './icons/feather-icon';
-import { LikeButton } from './like-btn.component';
+import { FeatherIcon } from '../shared/icons/feather-icon';
+import { LikeButton } from '../shared/like-btn';
 import Image from 'next/image';
 
 export interface PostCardProps {

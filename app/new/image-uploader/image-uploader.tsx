@@ -1,10 +1,10 @@
 'use client'
 
 import React, { useState } from 'react';
-import { Spinner } from '../spinner';
+import { Spinner } from '../../shared/spinner';
 import { ImageUploaderButtons } from './image-uploader-buttons';
 import { ImageUploaderImages } from './image-uploader-images';
-import { Alert } from '../alert';
+import { Alert } from '../../shared/alert';
 
 interface ImageUploaderProps {
     imageUrls: string[];

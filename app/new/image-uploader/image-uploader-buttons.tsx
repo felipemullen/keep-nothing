@@ -1,5 +1,5 @@
 import React from 'react';
-import { CreateFieldHeader } from './create-field-header';
+import { CreateFieldHeader } from '../create-field-header';
 
 export interface ButtonsProps {
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;

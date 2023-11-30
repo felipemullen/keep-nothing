@@ -2,9 +2,9 @@
 
 import React, { useEffect, useState } from 'react';
 import { PostDto } from '@/model/post.model';
-import { PostCard } from '../components/post-card';
-import { FeatherIcon } from '../components/icons/feather-icon';
-import { Spinner } from '../components/spinner';
+import { PostCard } from '../post/post-card';
+import { FeatherIcon } from '../shared/icons/feather-icon';
+import { Spinner } from '../shared/spinner';
 
 interface PostListProps {
 }

@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
-import { Sidebar } from '../components/sidebar';
+import { Sidebar } from '../shared/sidebar';
 import { LikedPosts } from './liked-posts';
-import { Spinner } from '../components/spinner';
+import { Spinner } from '../shared/spinner';
 import { DbService } from '@/services/db.service';
 
 export default async function LikesPage() {

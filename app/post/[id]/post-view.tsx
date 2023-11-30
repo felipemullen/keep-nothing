@@ -1,9 +1,9 @@
-import { ImageGallery } from '../components/image-gallery';
-import { KeyValuePill } from '../components/key-value-pill.component';
+import { ImageGallery } from './image-gallery';
+import { KeyValuePill } from './key-value-pill';
 import { PostDto } from '@/model/post.model';
 import { PostHead } from './post-head';
 import { Suspense } from 'react';
-import { TimeAgo } from '../components/time-ago.component';
+import { TimeAgo } from '../../shared/time-ago';
 import dynamic from 'next/dynamic';
 import { CategoryDto } from '@/model/category.model';
 
@@ -15,7 +15,7 @@ export interface PostViewProps {
 
 export function PostView({ data, postCategory, location }: PostViewProps) {
 
-    const Minimap = dynamic(() => import('../components/minimap'), { ssr: false });
+    const Minimap = dynamic(() => import('./minimap'), { ssr: false });
     const hasImages = data.imageUrls?.length > 0;
 
     return (

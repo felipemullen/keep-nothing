@@ -1,9 +1,9 @@
 import { DbService } from '@/services/db.service';
-import { PostView } from '../post-view';
-import { FeatherIcon } from '@/app/components/icons/feather-icon';
+import { PostView } from './post-view';
+import { FeatherIcon } from '@/app/shared/icons/feather-icon';
 
 import React, { Suspense } from 'react';
-import { Spinner } from '@/app/components/spinner';
+import { Spinner } from '@/app/shared/spinner';
 import { ServerUtil } from '@/app/util/server-utils';
 
 export default async function PostPage({ params }: any) {
