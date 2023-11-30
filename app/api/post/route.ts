@@ -2,7 +2,6 @@ import { ServerUtil } from '@/app/util/server-utils';
 import { Util } from '@/app/util/util';
 import { PostCreateRequest, PostDto, validatePost } from '@/model/post.model';
 import { DbService } from '@/services/db.service';
-import { TasksService } from '@/services/tasks.service';
 
 export async function GET(request: Request) {
     const { searchParams } = new URL(request.url);
@@ -37,11 +36,6 @@ export async function POST(request: Request) {
         };
 
         const id = await DbService.post.create(post);
-
-        try {
-            // allow image cleanup to run in the background
-            TasksService.cleanupOrphanedImages();
-        } catch { }
 
         return Response.json({ id });
     }

@@ -1,9 +1,11 @@
 import fs from 'fs';
 import path from 'path';
-import { DbService } from './db.service';
+import { DbService } from '../../services/db.service';
 
-export class TasksService {
+export class FileTasks {
     static async cleanupOrphanedImages() {
+        console.log('[FileTasks] Start cleanupOrphanedImages...');
+
         if (!process.env.IMAGE_UPLOAD_PUBLIC_PATH) {
             throw new Error('IMAGE_UPLOAD_PUBLIC_PATH is not set');
         }
@@ -19,5 +21,7 @@ export class TasksService {
             console.log(`Deleting ${orphanedImage}`);
             fs.unlinkSync(path.join(imagePath, orphanedImage));
         }
+
+        console.log('[FileTasks] End cleanupOrphanedImages ✔️');
     }
 }
