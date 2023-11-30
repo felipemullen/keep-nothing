@@ -25,7 +25,7 @@ export function PostView({ data, postCategory, location }: PostViewProps) {
                 <div className="sm:flex xl:flex">
                     <div className="sm:w-8/12 sm:pr-3 md:w-7/12 xl:pr-5">
                         {hasImages && <ImageGallery className="mb-5" postImages={data.imageUrls} />}
-                        <p className="font-light">{data.description}</p>
+                        <p className="font-light whitespace-pre-line">{data.description}</p>
 
                         <ul className="my-5 px-5 font-light list-disc">
                             <li className="lisdisc">do NOT contact me with unsolicited services or offers</li>
