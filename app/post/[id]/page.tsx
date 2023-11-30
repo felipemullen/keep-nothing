@@ -13,6 +13,9 @@ export default async function PostPage({ params }: any) {
     const post = await DbService.post.byId(id);
 
     if (post) {
+        // Converting id from ObjectId to avoid "Only plain objects can be passed to Client Components" error
+        post._id = post._id.toString();
+
         const categories = await DbService.category.withCounts();
         const postCategory = categories.find((c) => c.shortName === post.category);
         const location = ServerUtil.getZipCoordinates(post.zipCode);

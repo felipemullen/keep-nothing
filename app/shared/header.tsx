@@ -1,6 +1,7 @@
 import React from 'react';
 import { FeatherIcon } from './icons/feather-icon';
 import Image from 'next/image';
+import logo from '../../public/images/logo.svg';
 
 export function Header() {
     return (
@@ -8,8 +9,8 @@ export function Header() {
             <div className="mx-auto px-3 flex justify-between">
                 <button className="md:hidden focus:outline-none px-3"></button>
                 <a className="flex items-center" href="/">
-                    <Image src="https://cdn0.iconfinder.com/data/icons/shopping-76/100/Artboard_18-256.png" alt="logo" className="w-10" width="100" height="100" />
-                    <span className="hidden sm:block">
+                    <Image src={logo} alt="logo" className="w-10" width="100" height="100" />
+                    <span className="hidden sm:block ml-2">
                         <span className="text-sm md:text-2xl text-neutral-700 font-semibold">Keep Nothing</span>
                     </span>
                 </a>
