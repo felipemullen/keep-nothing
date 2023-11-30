@@ -5,6 +5,7 @@ import { PostCard } from '../post/post-card';
 import { PostDto } from '@/model/post.model';
 import { CategoryDto } from '@/model/category.model';
 import { FeatherIcon } from './icons/feather-icon';
+import { Spinner } from './spinner';
 
 interface PostListProps {
     loadRecent?: string;
@@ -12,6 +13,7 @@ interface PostListProps {
 }
 
 export function PostList({ loadRecent, category }: PostListProps) {
+    const [isLoading, setIsLoading] = useState(true);
     const [data, setData] = useState<PostDto[]>([]);
     const [sortedBy, setSortedBy] = useState('newest');
 
@@ -37,6 +39,8 @@ export function PostList({ loadRecent, category }: PostListProps) {
                 const postData = await response.json();
                 setData(postData as PostDto[]);
             }
+
+            setIsLoading(false);
         };
 
         fetchPosts();
@@ -78,7 +82,12 @@ export function PostList({ loadRecent, category }: PostListProps) {
                     <PostCard key={post._id?.toString()} post={post} />
                 ))}
             </div>
-            {data.length === 0 &&
+            {isLoading &&
+                <div className="p-5 w-full flex flex-col items-center">
+                    <Spinner />
+                </div>
+            }
+            {!isLoading && data.length === 0 &&
                 <div className="p-5 w-full flex flex-col items-center">
                     <FeatherIcon name="frown" className="m-4 text-red-400" size={42} />
                     <p>There aren&apos;t any posts in this category!</p>

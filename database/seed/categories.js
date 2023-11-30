@@ -47,6 +47,9 @@ async function run() {
         await collection.deleteMany({});
         await collection.insertMany(categories);
 
+        const postsCollection = db.collection('posts');
+        await postsCollection.createIndex({ category: 1 }, { name: 'category_index' });
+
         console.log('Categories added successfully!');
     } finally {
         await client.close();
