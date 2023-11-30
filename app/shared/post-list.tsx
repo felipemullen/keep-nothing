@@ -66,9 +66,9 @@ export function PostList({ loadRecent, category }: PostListProps) {
 
     return (
         <div className="max-w-72rem mx-auto">
-            <div className="flex justify-between items-baseline text-sm">
-                <p className="uppercase text-menu-caption-gray font-semibold text-xs mb-5">{caption}</p>
-                <div className="flex items-center">
+            <div className="md:flex justify-between items-baseline text-sm  mb-5">
+                <p className="uppercase text-menu-caption-gray font-semibold text-xs">{caption}</p>
+                <div className="flex items-center mt-1">
                     <span className="mr-1">Sort by:</span>
                     <select value={sortedBy} onChange={handleSort} className="pl-1 text-md">
                         <option value="newest">Newest</option>

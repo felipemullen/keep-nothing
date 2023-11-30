@@ -5,6 +5,7 @@ import { FeatherIcon } from '@/app/shared/icons/feather-icon';
 import React, { Suspense } from 'react';
 import { Spinner } from '@/app/shared/spinner';
 import { ServerUtil } from '@/app/util/server-utils';
+import { SidebarMobile } from '@/app/shared/sidebar';
 
 export default async function PostPage({ params }: any) {
     const { id } = params;
@@ -12,13 +13,17 @@ export default async function PostPage({ params }: any) {
     const post = await DbService.post.byId(id);
 
     if (post) {
-        const postCategory = await DbService.category.byShortName(post.category);
+        const categories = await DbService.category.withCounts();
+        const postCategory = categories.find((c) => c.shortName === post.category);
         const location = ServerUtil.getZipCoordinates(post.zipCode);
 
         return (
-            <Suspense fallback={<Spinner />}>
-                <PostView data={post} postCategory={postCategory!} location={location} />
-            </Suspense>
+            <>
+                <SidebarMobile categories={categories} />
+                <Suspense fallback={<Spinner />}>
+                    <PostView data={post} postCategory={postCategory!} location={location} />
+                </Suspense>
+            </>
         );
     } else {
         return (

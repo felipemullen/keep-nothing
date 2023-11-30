@@ -6,7 +6,19 @@ export class CategoryDb extends DbCollection<CategoryDto> {
         return this.collection.find().toArray();
     }
 
-    async withCounts() {
+    async withCounts(includeConditions: boolean = false) {
+        const projection: any = {
+            _id: { $toString: "$_id" },
+            label: 1,
+            shortName: 1,
+            description: 1,
+            postCount: { $size: "$posts" }
+        };
+
+        if (includeConditions) {
+            projection['conditions'] = 1;
+        }
+
         return this.collection.aggregate<CategoryWithCount>([
             {
                 $lookup: {
@@ -17,13 +29,7 @@ export class CategoryDb extends DbCollection<CategoryDto> {
                 }
             },
             {
-                $project: {
-                    _id: { $toString: "$_id" },
-                    label: 1,
-                    shortName: 1,
-                    description: 1,
-                    postCount: { $size: "$posts" }
-                }
+                $project: projection
             }
         ]).toArray();
     }

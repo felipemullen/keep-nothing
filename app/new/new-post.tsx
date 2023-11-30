@@ -145,10 +145,10 @@ export function NewPost({ categories }: NewPostProps) {
     return (
         <div className="flex flex-col md:flex-row mt-5 justify-center">
             <div className="w-full border-b md:border-b-0 md:max-w-xs md:pt-5 px-4 md:border-r text-sm font-light text-neutral-700">
-                <p className="mb-4">Fields marked with <span className="text-rose-400">*</span> symbol are required.</p>
-                <p className="my-4">Your listing will show the approximate radius of the neighborhood you select.</p>
-                <p className="my-4">You can also select that you are willing to <strong>meet in church</strong> as well, it might make things easier if you&apos;re not in a rush.</p>
-                <p className="my-4"><strong>Avoid scams.</strong> Deal locally and meet in person. Beware of shipping, wire transfers, cashier checks.</p>
+                <p className="mb-4">Fields marked with <span className="text-rose-400">*</span> symbol are <strong className="font-semibold">required.</strong></p>
+                <p className="my-4">Your listing will show the location of the zip code you enter. The default value is the city of San Diego.</p>
+                <p className="my-4">You can also select that you are willing to <strong className="font-semibold">meet in church</strong> as well, it might make things easier if you&apos;re not in a rush.</p>
+                <p className="my-4"><strong className="font-semibold">Avoid scams.</strong> Deal locally and meet in person. Beware of shipping, wire transfers, cashier checks.</p>
             </div>
             <div className="w-full md:max-w-2xl md:pt-5 px-4 pt-4">
                 <div className="w-100">

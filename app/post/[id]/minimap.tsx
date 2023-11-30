@@ -19,7 +19,7 @@ export default function Minimap({ center, zoom }: MinimapProps) {
 
     return (
         <div className="h-full w-full">
-            <MapContainer center={center} zoom={zoom} scrollWheelZoom={false} style={{ height: 400, width: "100%" }}>
+            <MapContainer center={center} zoom={zoom} scrollWheelZoom={false} style={{ zIndex: 1, height: 400, width: "100%" }}>
                 <TileLayer
                     // attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                     // url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
