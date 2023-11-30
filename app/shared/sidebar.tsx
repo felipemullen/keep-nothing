@@ -25,7 +25,10 @@ export function Sidebar({ categories }: SidebarProps) {
                     <ul className="h-full pb-10 overflow-y-scroll">
                         {categories.map((category) => (
                             <a key={category._id} href={`/category/${category.shortName}`}>
-                                <li className="font-light py-2 border-b text-lg text-neutral-500">{category.label}</li>
+                                <li className="font-light py-2 border-b text-lg text-neutral-500">
+                                    {category.label}
+                                    {category.postCount > 0 && <span className="text-sm ml-1 text-rose-300">({category.postCount})</span>}
+                                </li>
                             </a>
                         ))}
                     </ul>
