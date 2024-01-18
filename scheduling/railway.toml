@@ -1,0 +1,9 @@
+[build]
+builder = "nixpacks"
+buildCommand = "echo built in 0s"
+
+[deploy]
+startCommand = "npm run start-tasks"
+healthcheckPath = "/"
+healthcheckTimeout = 100
+restartPolicyType = "never"
