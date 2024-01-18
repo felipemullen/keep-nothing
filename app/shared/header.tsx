@@ -15,11 +15,12 @@ export function Header() {
                     </span>
                 </a>
                 <div className="flex items-center">
-                    <a href="/likes" className="p-2">
-                        <FeatherIcon name="heart" size={20} className="hover:text-red-300" fillColor="currentColor" />
+                    <a href="/likes" className="group p-2 flex align-center items-center">
+                        <span className="uppercase me-1 text-transparent group-hover:text-neutral-400">liked posts</span>
+                        <FeatherIcon name="heart" size={20} className="group-hover:text-red-300" fillColor="currentColor" />
                     </a>
-                    <a href="/new">
-                        <button className="bg-red-400 text-white text-sm px-2 py-1 fs-2 uppercase rounded-sm">New post</button>
+                    <a href="/new" className="bg-red-400 text-white text-sm px-2 py-1 fs-2 uppercase rounded-sm">
+                        <span>New post</span>
                     </a>
                 </div>
             </div>
