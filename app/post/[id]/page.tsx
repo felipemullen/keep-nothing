@@ -11,12 +11,12 @@ export default async function PostPage({ params }: any) {
     const { id } = params;
 
     const post = await DbService.post.byId(id);
+    const categories = await DbService.category.withCounts();
 
     if (post) {
         // Converting id from ObjectId to avoid "Only plain objects can be passed to Client Components" error
         post._id = post._id.toString();
 
-        const categories = await DbService.category.withCounts();
         const postCategory = categories.find((c) => c.shortName === post.category);
         const location = ServerUtil.getZipCoordinates(post.zipCode);
 
@@ -30,10 +30,13 @@ export default async function PostPage({ params }: any) {
         );
     } else {
         return (
-            <div className="p-10 md:p-36 flex flex-col items-center">
-                <FeatherIcon name="alert-octagon" />
-                <p className="mt-5 text-lg">Post not found</p>
-            </div>
+            <>
+                <SidebarMobile categories={categories} />
+                <div className="p-10 md:p-36 flex flex-col items-center">
+                    <FeatherIcon name="alert-octagon" />
+                    <p className="mt-5 text-lg">Post not found</p>
+                </div>
+            </>
         );
     }
 }
