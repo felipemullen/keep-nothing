@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start-tasks": "node scheduling/main.ts",
+    "start-tasks": "bun run scheduling/main.ts",
     "build": "next build",
     "start": "next start -p 3050",
     "lint": "next lint"

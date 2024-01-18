@@ -3,7 +3,7 @@ builder = "nixpacks"
 buildCommand = "echo built in 0s"
 
 [deploy]
-startCommand = "npm run start-tasks"
+startCommand = "bun run start-tasks"
 healthcheckPath = "/"
 healthcheckTimeout = 1
 restartPolicyType = "never"
