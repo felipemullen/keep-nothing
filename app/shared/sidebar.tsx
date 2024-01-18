@@ -19,9 +19,9 @@ export function SidebarMobile({ categories }: SidebarProps) {
                 </button>
             </div>
             <div className={`fixed top-0 left-0 h-screen w-full bg-white z-30 transition-transform ${isOpen ? '-translate-y-0' : '-translate-y-full'}`}>
-                <div className="pt-16 px-3 py-5 shadow-md h-full overflow-hidden dark:bg-gray-800">
+                <div className="pt-16 px-3 pt-5 pb-2 shadow-md h-full overflow-hidden flex flex-col dark:bg-gray-800">
                     <p className="uppercase text-menu-caption-gray font-semibold text-xs mb-5">Categories</p>
-                    <ul className="h-full pb-10 overflow-y-scroll">
+                    <ul className="pb-5 overflow-y-scroll">
                         {categories.map((category) => (
                             <a key={category._id} href={`/category/${category.shortName}`}>
                                 <li className="font-light py-2 border-b text-lg text-neutral-500">
@@ -31,6 +31,11 @@ export function SidebarMobile({ categories }: SidebarProps) {
                             </a>
                         ))}
                     </ul>
+                    <div className="bg-neutral-100 p-2">
+                        <a href="/about" className="uppercase text-sm border-b border-dashed border-neutral-400 font-semibold">
+                            About this website
+                        </a>
+                    </div>
                 </div>
             </div>
         </>
@@ -40,7 +45,7 @@ export function SidebarMobile({ categories }: SidebarProps) {
 export function SidebarDesktop({ categories }: SidebarProps) {
     return (
         <aside className="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700" aria-label="Sidebar">
-            <div className="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
+            <div className="h-full px-3 pb-4 overflow-y-auto flex flex-col bg-white dark:bg-gray-800">
                 <p className="uppercase text-menu-caption-gray font-semibold text-xs px-4 mb-5">Categories</p>
                 <ul className="pl-4 text-base">
                     {categories.map((category) => (
@@ -52,6 +57,12 @@ export function SidebarDesktop({ categories }: SidebarProps) {
                         </a>
                     ))}
                 </ul>
+
+                <div className="bg-neutral-100 p-2 mt-auto">
+                    <a href="/about" className="uppercase text-sm border-b border-dashed border-neutral-400 font-semibold">
+                        About this website
+                    </a>
+                </div>
             </div>
         </aside>
     );
