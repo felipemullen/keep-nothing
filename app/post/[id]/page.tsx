@@ -5,7 +5,7 @@ import { FeatherIcon } from '@/app/shared/icons/feather-icon';
 import React, { Suspense } from 'react';
 import { Spinner } from '@/app/shared/spinner';
 import { ServerUtil } from '@/app/util/server-utils';
-import { SidebarMobile } from '@/app/shared/sidebar';
+import { Sidebar } from '@/app/shared/sidebar';
 
 export default async function PostPage({ params }: any) {
     const { id } = params;
@@ -22,17 +22,19 @@ export default async function PostPage({ params }: any) {
 
         return (
             <>
-                <SidebarMobile categories={categories} />
+                <Sidebar categories={categories} />
                 <Suspense fallback={<Spinner />}>
-                    <PostView data={post} postCategory={postCategory!} location={location} />
+                    <div className="sm:ml-64">
+                        <PostView data={post} postCategory={postCategory!} location={location} />
+                    </div>
                 </Suspense>
             </>
         );
     } else {
         return (
             <>
-                <SidebarMobile categories={categories} />
-                <div className="p-10 md:p-36 flex flex-col items-center">
+                <Sidebar categories={categories} />
+                <div className="p-10 sm:ml-64 md:pt-36 flex flex-col items-center">
                     <FeatherIcon name="alert-octagon" />
                     <p className="mt-5 text-lg">Post not found</p>
                 </div>

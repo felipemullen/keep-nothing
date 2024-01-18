@@ -26,14 +26,16 @@ export function PostReplyBtn({ data }: PostReplyBtnProps) {
                                 <a href={`mailto:${data.email}`} className="text-blue-500">{data.email}</a>
                             </td>
                         </tr>
-                        <tr className="bg-white dark:bg-gray-800">
-                            <th scope="row" className="px-3 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                Phone
-                            </th>
-                            <td className="px-3 py-2 whitespace-nowrap">
-                                <a href={`tel:+1${data.phone}`} className="text-blue-500">{data.phone}</a>
-                            </td>
-                        </tr>
+                        {data.phone &&
+                            <tr className="bg-white dark:bg-gray-800">
+                                <th scope="row" className="px-3 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    Phone
+                                </th>
+                                <td className="px-3 py-2 whitespace-nowrap">
+                                    <a href={`tel:+1${data.phone}`} className="text-blue-500">{data.phone}</a>
+                                </td>
+                            </tr>
+                        }
                     </tbody>
                 </table>
             </div>
