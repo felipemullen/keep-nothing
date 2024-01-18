@@ -5,5 +5,5 @@ buildCommand = "echo built in 0s"
 [deploy]
 startCommand = "npm run start-tasks"
 healthcheckPath = "/"
-healthcheckTimeout = 100
+healthcheckTimeout = 1
 restartPolicyType = "never"
