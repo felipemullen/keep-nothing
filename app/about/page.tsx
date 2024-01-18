@@ -24,16 +24,16 @@ export default async function AboutPage() {
 
                     <blockquote className="text-xl bg-neutral-100 italic border-l-4 pl-4 p-5 border-red-400">
                         <p>
-                            "For I was hungry and you gave me something to eat, I was thirsty and you gave
+                            &quot;For I was hungry and you gave me something to eat, I was thirsty and you gave
                             me something to drink, I was a stranger and you invited me in, I needed clothes
                             and you clothed me, I was sick and you looked after me, I was in prison and you
-                            came to visit me."
+                            came to visit me.&quot;
                         </p>
                         <small className="text-neutral-400">- Matthew 25:35-36</small>
                     </blockquote>
 
                     <p className="py-2">
-                        Ideally, this isn't just a place for classified ads, but a community where people can
+                        Ideally, this isn&apos;t just a place for classified ads, but a community where people can
                         connect and help each other through an open and fair marketplace.
                     </p>
                     <p className="py-2">
@@ -54,12 +54,13 @@ export default async function AboutPage() {
                     </p>
 
                     <p className="py-2">
-                        <strong>Running this website</strong> does in fact cost money, so if you'd like to help out, please consider
-                        donating to the project. Unfortunately, <strong>servers are expensive</strong> and we're not making any money here :)
+                        <strong>Running this website</strong> does in fact cost money, so if you would like to help out, please consider
+                        donating to the project. Unfortunately, <strong>servers are expensive</strong> and we&apos;re not making any money here :)
                     </p>
 
                     <div className="text-center">
                         <a className="inline-flex uppercase px-4 py-2 rounded items-center bg-yellow-300 hover:bg-amber-300 border border-amber-400" target="_blank" href="https://www.buymeacoffee.com/felipemullen">
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
                             <img className="h-5 mr-2" src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg" alt="Buy me a coffee" />
                             <span className="font-semibold">Support this site $5</span>
                         </a>
