@@ -1,4 +1,4 @@
-import { PostDto } from '@/model/post.model';
+import { PostDto } from '@/app/model/post.model';
 import { Util } from '../util/util';
 import { FeatherIcon } from '../shared/icons/feather-icon';
 import { LikeButton } from '../shared/like-btn';

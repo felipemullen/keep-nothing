@@ -1,4 +1,4 @@
-import { DbService } from '@/services/db.service';
+import { DbService } from '@/app/services/db.service';
 
 export async function GET(request: Request) {
     const internalheader = request.headers.get('x-internal-source');

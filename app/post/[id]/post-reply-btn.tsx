@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { PostDto } from '@/model/post.model';
+import { PostDto } from '@/app/model/post.model';
 
 export interface PostReplyBtnProps {
     data: PostDto;

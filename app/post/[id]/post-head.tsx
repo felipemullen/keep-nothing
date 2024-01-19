@@ -1,4 +1,4 @@
-import { PostDto } from '@/model/post.model';
+import { PostDto } from '@/app/model/post.model';
 import { TimeAgo } from '../../shared/time-ago';
 import { Util } from '../../util/util';
 import { PostReplyBtn } from './post-reply-btn';

@@ -1,7 +1,7 @@
 import { PostList } from '@/app/shared/post-list';
 import { Sidebar } from '@/app/shared/sidebar';
 import { Spinner } from '@/app/shared/spinner';
-import { DbService } from '@/services/db.service';
+import { DbService } from '@/app/services/db.service';
 import React, { Suspense } from 'react';
 
 export default async function CategoryPage({ params }: any) {

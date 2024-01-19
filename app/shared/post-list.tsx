@@ -2,8 +2,8 @@
 
 import React, { useEffect, useState } from 'react';
 import { PostCard } from '../post/post-card';
-import { PostDto } from '@/model/post.model';
-import { CategoryDto } from '@/model/category.model';
+import { PostDto } from '@/app/model/post.model';
+import { CategoryDto } from '@/app/model/category.model';
 import { FeatherIcon } from './icons/feather-icon';
 import { Spinner } from './spinner';
 

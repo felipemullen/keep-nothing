@@ -21,7 +21,7 @@
 import React, { Suspense } from 'react';
 import { Sidebar } from './shared/sidebar';
 import { PostList } from './shared/post-list';
-import { DbService } from '@/services/db.service';
+import { DbService } from '@/app/services/db.service';
 import { Spinner } from './shared/spinner';
 
 export default async function MainPage() {

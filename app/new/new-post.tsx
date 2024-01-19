@@ -5,8 +5,8 @@ import { CreateFieldHeader } from './create-field-header';
 import { ImageUploader } from './image-uploader/image-uploader';
 import { FieldError } from './field-error';
 import React, { useState } from 'react';
-import { PostCreateRequest } from '@/model/post.model';
-import { CategoryDto } from '@/model/category.model';
+import { PostCreateRequest } from '@/app/model/post.model';
+import { CategoryDto } from '@/app/model/category.model';
 
 const initialErrors = {
     categoryError: '',

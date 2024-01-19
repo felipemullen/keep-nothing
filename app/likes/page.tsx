@@ -2,7 +2,7 @@ import { Suspense } from 'react';
 import { Sidebar } from '../shared/sidebar';
 import { LikedPosts } from './liked-posts';
 import { Spinner } from '../shared/spinner';
-import { DbService } from '@/services/db.service';
+import { DbService } from '@/app/services/db.service';
 
 export default async function LikesPage() {
     const categories = await DbService.category.withCounts();

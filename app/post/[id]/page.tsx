@@ -1,4 +1,4 @@
-import { DbService } from '@/services/db.service';
+import { DbService } from '@/app/services/db.service';
 import { PostView } from './post-view';
 import { FeatherIcon } from '@/app/shared/icons/feather-icon';
 

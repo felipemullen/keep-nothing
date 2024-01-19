@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { FeatherIcon } from './icons/feather-icon';
-import { CategoryWithCount } from '@/model/category.model';
+import { CategoryWithCount } from '@/app/model/category.model';
 
 export interface SidebarProps {
     categories: CategoryWithCount[];

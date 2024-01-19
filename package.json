@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "dev": "next dev -H 0.0.0.0 -p 3050",
     "start-tasks": "bun run scheduling/main.ts",
     "build": "next build",
     "start": "next start -p 3050",

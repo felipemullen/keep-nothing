@@ -1,11 +1,11 @@
 import { ImageGallery } from './image-gallery';
 import { KeyValuePill } from './key-value-pill';
-import { PostDto } from '@/model/post.model';
+import { PostDto } from '@/app/model/post.model';
 import { PostHead } from './post-head';
 import { Suspense } from 'react';
 import { TimeAgo } from '../../shared/time-ago';
 import dynamic from 'next/dynamic';
-import { CategoryDto } from '@/model/category.model';
+import { CategoryDto } from '@/app/model/category.model';
 
 export interface PostViewProps {
     data: PostDto;

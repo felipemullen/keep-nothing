@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { PostDto } from '@/model/post.model';
+import { PostDto } from '@/app/model/post.model';
 import { PostCard } from '../post/post-card';
 import { FeatherIcon } from '../shared/icons/feather-icon';
 import { Spinner } from '../shared/spinner';

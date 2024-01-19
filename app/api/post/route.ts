@@ -1,7 +1,7 @@
 import { ServerUtil } from '@/app/util/server-utils';
 import { Util } from '@/app/util/util';
-import { PostCreateRequest, PostDto, validatePost } from '@/model/post.model';
-import { DbService } from '@/services/db.service';
+import { PostCreateRequest, PostDto, validatePost } from '@/app/model/post.model';
+import { DbService } from '@/app/services/db.service';
 
 export async function GET(request: Request) {
     const { searchParams } = new URL(request.url);

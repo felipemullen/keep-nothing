@@ -1,4 +1,4 @@
-import { CategoryDto, CategoryWithCount } from '@/model/category.model';
+import { CategoryDto, CategoryWithCount } from '@/app/model/category.model';
 import { DbCollection } from './db-collection';
 
 export class CategoryDb extends DbCollection<CategoryDto> {

@@ -1,4 +1,4 @@
-import { DbService } from '@/services/db.service';
+import { DbService } from '@/app/services/db.service';
 import { NewPost } from './new-post';
 import { SidebarMobile } from '../shared/sidebar';
 

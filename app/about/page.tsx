@@ -1,4 +1,4 @@
-import { DbService } from '@/services/db.service';
+import { DbService } from '@/app/services/db.service';
 import { Sidebar, SidebarMobile } from '../shared/sidebar';
 import { FeatherIcon } from '../shared/icons/feather-icon';
 import { Suspense } from 'react';

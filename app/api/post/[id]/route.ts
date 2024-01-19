@@ -1,4 +1,4 @@
-import { DbService } from '../../../../services/db.service';
+import { DbService } from '../../../services/db.service';
 
 export async function GET(request: Request) {
     const { pathname } = new URL(request.url);
