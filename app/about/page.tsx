@@ -66,10 +66,10 @@ export default async function AboutPage() {
                         </a>
                     </div>
                     <div className="flex items-center justify-center m-2 space-x-2">
-                        <a href="https://github.com/felipemullen/keep-nothing" className="text-sm px-2 py-1 fs-2 text-white border border-neutral-400 hover:text-neutral-700 border bg-neutral-700 hover:bg-neutral-300 rounded-sm flex items-center">
+                        <a href="https://github.com/felipemullen/keep-nothing" target="_blank" className="text-sm px-2 py-1 fs-2 text-white border border-neutral-400 hover:text-neutral-700 border bg-neutral-700 hover:bg-neutral-300 rounded-sm flex items-center">
                             <FeatherIcon className="me-1" name="github" size={14} />GitHub
                         </a>
-                        <a href="https://github.com/felipemullen/keep-nothing/issues/new" className="text-sm px-2 py-1 fs-2 border border-neutral-400 hover:border-neutral-700 hover:bg-neutral-200 rounded-sm flex items-center">
+                        <a href="https://github.com/felipemullen/keep-nothing/issues/new?labels=bug&template=bug_report.md&title=%5BBug%5D+" target="_blank" className="text-sm px-2 py-1 fs-2 border border-neutral-400 hover:border-neutral-700 hover:bg-neutral-200 rounded-sm flex items-center">
                             <FeatherIcon className="me-1" name="trello" size={14} />Report a Bug
                         </a>
                     </div>
