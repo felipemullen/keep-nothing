@@ -22,7 +22,7 @@ export interface PostDto {
     /** Refers to @see {CategoryDto.shortName}  */
     category: string;
     condition: string;
-    createdDate: string;
+    createdDate: Date;
     description: string;
     email: string;
     phone: string;

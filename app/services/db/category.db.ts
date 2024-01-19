@@ -25,7 +25,14 @@ export class CategoryDb extends DbCollection<CategoryDto> {
                     from: 'posts',
                     localField: 'shortName',
                     foreignField: 'category',
-                    as: 'posts'
+                    as: 'posts',
+                    pipeline: [
+                        {
+                            $match: {
+                                isExpired: { $ne: true }
+                            }
+                        }
+                    ]
                 }
             },
             {

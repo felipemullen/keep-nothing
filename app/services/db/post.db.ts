@@ -34,7 +34,7 @@ export class PostDb extends DbCollection<PostDto> {
     async create(data: Omit<PostDto, '_id' | 'createdDate'>) {
         const post: PostDto = {
             ...data,
-            createdDate: new Date().toString()
+            createdDate: new Date()
         };
 
         const insertResult = await this.collection.insertOne(post);
@@ -60,8 +60,10 @@ export class PostDb extends DbCollection<PostDto> {
     }
 
     async setOldPostsExpired(olderThanDays: number) {
+        const daysAgoTime = new Date(Date.now() - olderThanDays * 24 * 60 * 60 * 1000);
+
         const result = await this.collection.updateMany(
-            { createdDate: { $lt: new Date(Date.now() - olderThanDays * 24 * 60 * 60 * 1000).toString() } },
+            { createdDate: { $lt: daysAgoTime } },
             { $set: { isExpired: true } }
         );
 
