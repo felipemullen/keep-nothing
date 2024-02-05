@@ -4,6 +4,8 @@ import { LikedPosts } from './liked-posts';
 import { Spinner } from '../shared/spinner';
 import { DbService } from '@/app/services/db.service';
 
+export const dynamic = 'force-dynamic';
+
 export default async function LikesPage() {
     const categories = await DbService.category.withCounts();
 

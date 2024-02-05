@@ -7,6 +7,8 @@ import { Spinner } from '@/app/shared/spinner';
 import { ServerUtil } from '@/app/util/server-utils';
 import { Sidebar } from '@/app/shared/sidebar';
 
+export const dynamic = 'force-dynamic';
+
 export default async function PostPage({ params }: any) {
     const { id } = params;
 

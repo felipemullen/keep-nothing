@@ -1,8 +1,10 @@
 import { DbService } from '@/app/services/db.service';
-import { Sidebar, SidebarMobile } from '../shared/sidebar';
+import { SidebarMobile } from '../shared/sidebar';
 import { FeatherIcon } from '../shared/icons/feather-icon';
 import { Suspense } from 'react';
 import { Spinner } from '../shared/spinner';
+
+export const dynamic = 'force-dynamic';
 
 export default async function AboutPage() {
     const categories = await DbService.category.withCounts();

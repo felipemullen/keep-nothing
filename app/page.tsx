@@ -24,6 +24,8 @@ import { PostList } from './shared/post-list';
 import { DbService } from '@/app/services/db.service';
 import { Spinner } from './shared/spinner';
 
+export const dynamic = 'force-dynamic';
+
 export default async function MainPage() {
 
     const categories = await DbService.category.withCounts();

@@ -4,6 +4,8 @@ import { Spinner } from '@/app/shared/spinner';
 import { DbService } from '@/app/services/db.service';
 import React, { Suspense } from 'react';
 
+export const dynamic = 'force-dynamic';
+
 export default async function CategoryPage({ params }: any) {
     const category = params.category as string;
     const categories = await DbService.category.withCounts();
