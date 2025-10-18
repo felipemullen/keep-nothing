@@ -39,3 +39,5 @@ next-env.d.ts
 /public/_i/*.gif
 /public/_i/*.jpg
 /public/_i/*.jpeg
+
+graphics

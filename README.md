@@ -28,3 +28,43 @@ If you want to contribute, please read the [Contributing](docs/Contributing.md) 
 - `docs` - Documentation
 - `public` - Static files served by the app
 - `scheduling` - Scripts for scheduling automated cron tasks
+
+
+db.posts.updateMany({}, { $set: { isExpired: false, createdDate: new Date() } })
+
+## 📄 License
+
+[GPLv3 License](./License)
+
+tasks
+<!-- - check for mistakes -->
+<!-- - protect master branch -->
+<!-- - make repo public -->
+- post on the rock
+- post on clist?
+
+<!-- - create github issues from readme -->
+<!-- - add license -->
+<!-- - fix .com name -->
+<!-- - change /api/posts to /api/post -->
+<!-- - gather categories + conditions + neighborhoods -->
+<!-- - fix neighboorhood position -->
+<!-- - rename imageUrl to images -->
+<!-- - add counts to categories -->
+<!-- - add liked heart to post card as absolute position -->
+<!-- - compress images + remove orphaned images -->
+<!-- - fix newlines in description -->
+<!-- - consistent file names -->
+<!-- - favicon / logo -->
+<!-- - about/donate page -->
+<!-- - add a template for github bug reports -->
+<!-- - posts need to expire!!! -->
+
+<!-- - support themes (dark/light) -->
+<!-- - use a better image service -->
+<!-- - allow email / phone hide => email relay -->
+<!-- - add slugs to urls -->
+<!-- - add accounts? -->
+
+- change form create to not be client side //////// maybe will
+keep because of form validation?
